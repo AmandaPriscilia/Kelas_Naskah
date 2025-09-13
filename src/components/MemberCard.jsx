@@ -7,7 +7,7 @@ export function TeamMemberCard({ id, name, title, image, backgroundGradient = 'b
 
   return (
     <Link href={`/member/${id}`} className="block">
-      <div className={`relative rounded-2xl overflow-hidden aspect-[1/1.4] max-w-xs mx-auto ${backgroundGradient}`}>
+      <div className={`relative rounded-2xl overflow-hidden aspect-[1/1.4] w-full max-w-[280px] sm:max-w-none mx-auto ${backgroundGradient}`}>
         {/* SVG for complex clip path */}
         <svg className="absolute w-0 h-0" aria-hidden="true">
           <defs>
@@ -29,17 +29,13 @@ export function TeamMemberCard({ id, name, title, image, backgroundGradient = 'b
         </div>
 
         <div className="relative z-10 flex flex-col items-center justify-start h-full p-4 pb-0">
-          {' '}
-          {/* Adjusted padding-bottom */}
           {/* Image container with custom clip path */}
           <div className="relative w-[85%] h-[65%] mt-4 flex items-end justify-center overflow-hidden" style={{ clipPath: `url(#${clipPathId})` }}>
             <Image src={image || '/placeholder.svg'} alt={name} fill className="object-cover object-top scale-110" />
           </div>
           {/* Text content */}
           <div className="relative z-20 mt-auto pt-4 pb-6 text-center w-full bg-[#364075] rounded-b-2xl">
-            {' '}
-            {/* Pushed to bottom, matching bottom shape */}
-            <h3 className="text-xl font-bold mb-1 text-white">{name}</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-1 text-white">{name}</h3>
             <p className="text-sm text-white/90">{title}</p>
           </div>
         </div>
